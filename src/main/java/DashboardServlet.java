@@ -11,7 +11,7 @@ public class DashboardServlet extends HttpServlet {
             throws ServletException, IOException {
 
         if (req.getSession().getAttribute("username") == null) {
-        	resp.sendRedirect("/login");
+        	resp.sendRedirect("/login?next=" + req.getRequestURI());
         	return;
         }
 

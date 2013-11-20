@@ -20,7 +20,12 @@ public class LoginServlet extends HttpServlet {
         
         HttpSession session = req.getSession();
         session.setAttribute("username", username);
-        resp.sendRedirect("/dashboard");
+
+        if (req.getParameter("next") == null) {
+            resp.sendRedirect("/dashboard");
+        } else {
+            resp.sendRedirect(req.getParameter("next"));
+        }
 
     }
 }

@@ -10,7 +10,7 @@ public class AnotherPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		if (req.getSession().getAttribute("username") == null) {
-			resp.sendRedirect("/login");
+			resp.sendRedirect("/login?next=" + req.getRequestURI());
 			return;
 		}
 
